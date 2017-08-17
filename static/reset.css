@@ -47,3 +47,11 @@ html,body,#app{
 	height: 100%;
 	touch-action: none;
 }
+#app .page{
+	position: absolute;
+	top:50px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	background: lightcoral;
+}
