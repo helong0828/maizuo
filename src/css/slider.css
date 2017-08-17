@@ -1,0 +1,24 @@
+.slider{
+	position: absolute;
+	top:50px;
+	left: 0px;
+	bottom: 0px;
+	right: 110px;
+	background: #282828;
+	z-index: 10;
+}
+.slider a{
+	display: block;
+	width:100%;
+	height: 50px;
+	color: #9a9a9a;
+	line-height: 50px;
+	padding:0 20px;
+	box-sizing: border-box;
+}
+.slider a .icon-arrow-left{
+	display: inline-block;
+	font-size: 12px;
+	line-height: 50px;
+	float: right;
+}
