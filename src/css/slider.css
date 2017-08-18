@@ -6,6 +6,7 @@
 	right: 110px;
 	background: #282828;
 	z-index: 10;
+	transition: 0.5s;
 }
 .slider a{
 	display: block;
@@ -21,4 +22,15 @@
 	font-size: 12px;
 	line-height: 50px;
 	float: right;
+}
+.cover{
+	position: absolute;
+	top:50px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	background: rgba(0,0,0,0.5);
+	transition: 0.5s;
+	z-index: 10;
+	display: none;
 }

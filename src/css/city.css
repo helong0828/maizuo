@@ -1,0 +1,91 @@
+#app #cities{
+  z-index: 4;
+  background: #ebebeb;
+  overflow: hidden;
+}
+.slideindown-appear {
+  transform: translateY(-100%);
+}
+
+.slideindown-appear.slideindown-appear-active {
+  transform: translateY(0);
+  transition: all 500ms ease-in;
+}
+#cities h5{
+  color: #333;
+  font-size: 14px;
+  line-height: 40px;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+#cities h4{
+  color:lightcoral;
+  font-size: 16px;
+  line-height: 50px;
+  padding:0 20px;
+  box-sizing: border-box;
+  background: #FFF;
+}
+#cities p{
+  color: #333;
+  font-size: 16px;
+  line-height: 50px;
+  padding:0 20px;
+  box-sizing: border-box;
+  background: #FFF;
+  display: flex;
+}
+#cities p span{
+  display: block;
+  flex: 1;
+  text-align: center;
+}
+#cities .start{
+  width:100%;
+  background: #FFF;
+  display: flex;
+  flex-wrap: wrap;
+}
+#cities .start li{
+    width: 25%;
+    font-size: 16px;
+    line-height: 46px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    color: #838383;
+    border-bottom: #ebebeb 1px solid;
+}
+#cities .cityList{
+  width:100%;
+  background: #FFF;
+  display: flex;
+  flex-wrap: wrap;
+}
+#cities .cityList div{
+  width:100%;
+}
+/* #cities .cityList li{
+  height: 40px;
+  padding-left: 20px;
+  box-sizing: border-box;
+} */
+#cities .cityList h5{
+  color: #333;
+  width:100%;
+  font-size: 14px;
+  line-height: 40px;
+  background: #ebebeb;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+#cities .cityList li{
+    width: 25%;
+    font-size: 16px;
+    line-height: 46px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    color: #838383;
+    border-bottom: #ebebeb 1px solid;
+}

@@ -15,8 +15,8 @@ export default class AppHeader extends Component{
 			<header class="app-header one-border-bottom">
 				<i class="iconfont icon-menu" onClick={this.menuHeaderAction.bind(this)}></i>
 				<h4 class="title">{this.props.title}</h4>
-				<p class="city">深圳<i class="iconfont icon-arrow-down"></i></p>
-				<i class="iconfont icon-me"></i>
+				<Link to="/city-list" class="city">深圳<i class="iconfont icon-arrow-down"></i></Link>
+				<Link to="/me" class="iconfont icon-me"></Link>
 			</header>
 		)
 	}

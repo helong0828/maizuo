@@ -7,20 +7,13 @@ import Me from "./pages/Me.js"
 import Card from "./pages/Card.js"
 import Shop from "./pages/Shop.js"
 import Cinema from "./pages/Cinema.js"
+import City from "./pages/City.js"
 
 
 import AppHeader from "./views/common/AppHeader.js"
 import SliderBar from "./views/common/SliderBar.js"
 
 
-/*
- <Route path="/" render={({history, location})=>{
-						return <SilderBar history={history} 
-									      show={this.state.showBar}
-									      pathname={location.pathname}
-									      hideHandle={this.menuHandle.bind(this)}/>
-					}}/>
- **/
 export default class APP extends Component{
 	constructor(){
 		super();
@@ -48,6 +41,7 @@ export default class APP extends Component{
 					<Route path="/shop" component={Shop}/>
 					<Route path="/cinema" component={Cinema}/>
 					<Route path="/movies" component={Movies}/>
+					<Route path="/city-list" component={City}/>
 				</div>
 			</BrowserRouter>
 		)
@@ -56,8 +50,9 @@ export default class APP extends Component{
 		this.setState({showBar:!this.state.showBar})
 	}
 	hideMenuAction(header){
-		console.log(header)
 		this.setState({showBar:!this.state.showBar})
-		this.setState({headerName:header});
+		if(header){
+			this.setState({headerName:header});
+		}
 	}
 }

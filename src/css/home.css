@@ -4,5 +4,136 @@
 	left: 0px;
 	bottom: 0px;
 	right: 0px;
-	background: lawngreen;
+	background: #ebebeb;
+	overflow: hidden;
+}
+.home .home-banner{
+	width:100%;
+	height: 210px;
+}
+.home .home-banner img{
+	width:100%;
+	height: 100%;
+}
+.home .now-playing{
+	width:100%;
+	padding: 20px;
+	box-sizing: border-box;
+}
+.home .now-playing li{
+	border:1px solid #999;
+	position: relative;
+	background: #FFF;
+	margin-bottom: 20px;
+}
+.home .now-playing img{
+	display: block;
+	width:100%;
+	height: 190px;
+}
+.home .now-playing h5{
+	font-size: 14px;
+	color: #000;
+	line-height: 30px;
+	margin-left: 10px;
+}
+.home .now-playing p{
+	font-size: 12px;
+	color: #666;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+.home .now-playing i{
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	font-size: 20px;
+	color: #f78360;
+}
+.home .more{
+	width:100%;
+	height: 30px;
+	text-align: center;
+}
+.home .more span{
+	display: inline-block;
+	width: 160px;
+    height: 30px;
+    border: 1px solid #aaa;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+    color: #616161;
+    cursor: pointer;
+}
+.comingSoon-title{
+	width:100%;
+	height: 30px;
+	text-align: center;
+	margin-top: 15px;
+	
+}
+.comingSoon-title span{
+	display: inline-block;
+    line-height: 20px;
+	font-size: 12px;
+	font-weight: 900;
+	border-radius: 5px;
+	line-height: 20px;
+	padding: 0 5px;
+    text-align: center;
+    color: #eee;
+	background-color: #a7a7a7;
+	position: relative;
+}
+.comingSoon-title span:after{
+	display: block;
+	width: 30%;
+	height: 2px;
+	background: #616161;
+	position: absolute;
+	top:10px;
+	left: 10px;
+}
+.home .comingSoon{
+	width:100%;
+	padding: 20px;
+	box-sizing: border-box;
+}
+.home .comingSoon li{
+	border:1px solid #999;
+	position: relative;
+	background: #FFF;
+	margin-bottom: 20px;
+}
+.home .comingSoon img{
+	display: block;
+	width:100%;
+	height: 190px;
+}
+.home .comingSoon h5{
+	font-size: 14px;
+	color: #000;
+	line-height: 30px;
+	margin-left: 10px;
+}
+
+
+.home .comingSoon-more{
+	width:100%;
+	height: 30px;
+	text-align: center;
+}
+.home .comingSoon-more span{
+	display: inline-block;
+	width: 160px;
+    height: 30px;
+    border: 1px solid #aaa;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+    color: #616161;
+    cursor: pointer;
 }
