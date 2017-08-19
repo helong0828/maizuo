@@ -1,0 +1,40 @@
+.login{
+    text-align: center;
+    margin-top: 50px;
+}
+.login input{
+    width:80%;
+    height: 40px;
+    margin-bottom: 20px;
+    background: #ebebeb;
+    border: none;
+    padding-left: 20px;
+}
+.login div{
+    height: 12px; 
+    width: 80%;
+    margin: 0 auto;
+    border: solid #c4c4c4;
+    border-width: 0 1px 1px 1px;
+}
+.login .border-name{
+    position: absolute;
+    top: 75px;
+    left: 30px;
+}
+.login .border-pwd{
+    position: absolute;
+    top: 135px;
+    left: 30px;
+}
+.login button{
+    width: 163px;
+    background-color: #fe8233;
+    color: #fff;
+    border: none;
+    border-radius: 36px;
+    margin-top: 45px;
+    padding: 8px 12px;
+    font-size: 15px;
+    outline: none;
+}

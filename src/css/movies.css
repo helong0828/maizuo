@@ -1,8 +1,88 @@
-.movies{
+#app .movies{
 	position: absolute;
 	top:50px;
 	left: 0px;
 	bottom: 0px;
 	right: 0px;
-	background: lightcoral;
+	overflow: hidden;
+	background: #f9f9f9;
+}
+.tabs{
+	width:100%;
+	height: 45px;
+	padding: 0 10px;
+}
+.tabs ul{
+	width:100%;
+	height: 100%;
+	border-bottom:1px solid #fe6e00;
+}
+.tabs ul li{
+	width:50%;
+	height: 42px;
+	text-align: center;
+	line-height: 42px;
+	float: left;
+}
+.movieList{
+	width:100%;
+}
+.movieList ul{
+	width:100%;
+	padding: 0 10px;
+	box-sizing: border-box;
+}
+.movieList ul li{
+	width:100%;
+	padding: 20px 0px;
+	height: 125px;
+	box-sizing: border-box;
+	border-bottom: 1px dashed #ddd;
+	position: relative;
+}
+.movieList ul li img{
+	width:60px;
+	height: 85px;
+	float: left;
+	margin-right: 10px;
+}
+ .movieList ul li h4{
+	font-size: 16px;
+    line-height: 32px;
+    color: #000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.movieList ul li p{
+	height: 24px;
+    line-height: 24px;
+    color: #8e8e8e;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+} 
+.movieList ul li .now span{
+	color:#8aa2bf;
+}
+.movieList ul li .soon{
+	color:#ffb375;
+}
+.movieList ul li .soon span:nth-of-type(1){
+	margin-right: 20px;
+}
+.movieList ul li .grade{
+	display: inline-block;
+	position: absolute;
+	top:20px;
+	right: 10px;
+    font-size: 16px;
+    line-height: 32px;
+    color: #fc7103;
+}
+.movieList ul li .grade i{
+	font-size: 12px;
+	transform: scale(0.5);
+    color: #666;
 }

@@ -1,0 +1,94 @@
+#app .cinema{
+    background: #FFF;
+    overflow: hidden;
+}
+.cinema .cinemaList{
+    width:100%;
+}
+.cinema .cinemaList h5{
+    width:100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    background: #e1e1e1;
+    margin-bottom: 1px;
+    color: #636363;
+    cursor: pointer
+}
+.cinema .cinemaList ul li{
+    width:100%;
+    padding: 0 20px 20px 20px;
+    box-sizing: border-box;
+    margin-top: 15px;
+    border-bottom: 1px solid #666;
+}
+.cinema .cinemaList ul li .title span:nth-of-type(1){
+    display: inline-block;
+    font-size: 16px;
+    color: #000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: text-top;
+    max-width: 70%;
+    
+}
+.cinema .cinemaList ul li .title span:nth-of-type(2){
+    display: inline-block;
+    width:15px;
+    height:15px;
+    font-size: 12px;
+    border:1px solid #fc8558;
+    color: #fc8558;
+    border-radius: 50%;
+    margin: 0 5px;
+    text-align: center;
+    border:1px solid #fc8558;
+    line-height: 15px;
+}
+.cinema .cinemaList ul li .title span:nth-of-type(3){
+    display: inline-block;
+    width:15px;
+    height: 15px;
+    font-size: 12px;
+    border:1px solid #88aec8;
+    color: #88aec8;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 15px;
+}
+.cinema .cinemaList ul li .title i{
+    font-size: 12px;
+    float: right;
+    line-height: 22px;
+}
+.cinema .cinemaList ul li .acti{
+    margin-top: 5px;
+}
+.cinema .cinemaList ul li .acti span{
+    display: inline-block;
+    border-radius: 3px;
+    padding: 0 5px;
+    margin: 0 5px;
+    color: #fff;
+    height: 15px;
+    line-height: 15px;
+}
+.cinema .cinemaList ul li .acti span:nth-of-type(1){
+    background-color: #51add0;
+}
+.cinema .cinemaList ul li .acti span:nth-of-type(2){
+    background-color: #fc8558;
+}
+.cinema .cinemaList ul li .address,.distance{
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 90%;
+    color: #ccc;
+    margin-top: 5px;
+}
