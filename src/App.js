@@ -1,14 +1,15 @@
 import React, {Component} from "react"
 import {BrowserRouter,Route} from "react-router-dom"
 
-import Home from "./pages/Home.js"
-import Movies from "./pages/Movies.js"
+import Home from "./pages/home/Home.js"
+import Movies from "./pages/movie/Movies.js"
 import Me from "./pages/Me.js"
 import Card from "./pages/Card.js"
 import Shop from "./pages/Shop.js"
-import Cinema from "./pages/Cinema.js"
+import Cinema from "./pages/cinema/Cinema.js"
 import City from "./pages/City.js"
 
+import MovieDetail from "./pages/movie/MovieDetail.js"
 
 import AppHeader from "./views/common/AppHeader.js"
 import SliderBar from "./views/common/SliderBar.js"
@@ -42,6 +43,8 @@ export default class APP extends Component{
 					<Route path="/cinema" component={Cinema}/>
 					<Route path="/movies" component={Movies}/>
 					<Route path="/city-list" component={City}/>
+
+					<Route path="/movie-detail/:id" component={MovieDetail}/>
 				</div>
 			</BrowserRouter>
 		)

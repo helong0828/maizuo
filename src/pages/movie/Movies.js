@@ -1,10 +1,11 @@
 import React, {Component} from "react"
-
-import "../css/movies.css"
-import homeService from "../services/homeService.js"
+import {Link} from "react-router-dom"
+import "../../css/movies.css"
+import homeService from "../../services/homeService.js"
 
 var movieSrcoll = null;
 
+//
 export default class Movies extends Component{
 	constructor(){
 		super();
@@ -32,35 +33,37 @@ export default class Movies extends Component{
 		let data = this.state.isSelected == 0?this.state.nowPalyingListData:this.state.soonListData
 		//console.log(this.state.isSelected);
 		return (
-			<div class="movies page">
-				<div class="wrap">
-					<div class="tabs">
-						<ul>
-							<li style={tabsBorderNow} onClick={this.nowTabsAction.bind(this)}>正在热映</li>
-							<li style={tabsBorderSoon} onClick={this.soonTabsAction.bind(this)}>即将上映</li>
-						</ul>
-					</div>
-					<div class="movieList">
-						<ul>
-							{
-								data.map((item,index)=>{
-									return (
-										<li key={index}>
-											<img src={item.poster.origin}/>
-											<h4>{item.name}</h4>
-											<p>{item.intro}</p>
-											<p class="now" style={moviesNowInfo}><span>{item.cinemaCount}</span>家影院上映<span>{item.watchCount}</span>人购票</p>
-											<p class="soon" style={moviesSoonInfo}><span>{item.playingTime.timedate}</span>上映<span>{item.playingTime.timeday}</span></p>
-											<p class="grade">{item.grade}<i class="iconfont icon-arrow-left"></i></p>
-										</li>
-									)
-								})
-							}
-							
-						</ul>
+				<div class="movies page">
+					<div class="wrap">
+						<div class="tabs">
+							<ul>
+								<li style={tabsBorderNow} onClick={this.nowTabsAction.bind(this)}>正在热映</li>
+								<li style={tabsBorderSoon} onClick={this.soonTabsAction.bind(this)}>即将上映</li>
+							</ul>
+						</div>
+						<div class="movieList">
+							<ul>
+								{
+									data.map((item,index)=>{
+										return (
+											
+											<li key={index}>
+												<Link to={'/movie-detail/'+item.id}> 
+													<img src={item.poster.origin}/>
+													<h4>{item.name}</h4>
+													<p>{item.intro}</p>
+													<p class="now" style={moviesNowInfo}><span>{item.cinemaCount}</span>家影院上映<span>{item.watchCount}</span>人购票</p>
+													<p class="soon" style={moviesSoonInfo}><span>{item.playingTime.timedate}</span>上映<span>{item.playingTime.timeday}</span></p>
+													<p class="grade">{item.grade}<i class="iconfont icon-arrow-left"></i></p>
+												</Link>
+											</li>
+										)
+									})
+								}
+							</ul>
+						</div>
 					</div>
 				</div>
-			</div>
 		)
 	}
 	nowTabsAction(){
@@ -109,5 +112,4 @@ export default class Movies extends Component{
 			movieSrcoll.refresh();
 		})
 	}
-	
 }

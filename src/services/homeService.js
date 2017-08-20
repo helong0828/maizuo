@@ -1,6 +1,6 @@
 import API from "../api"
 import axios from "axios"
-
+//获取城市列表
 function getCityListData(){
 	var data = [];
 	return new Promise((resolve,reject)=>{
@@ -40,6 +40,7 @@ function getCityListData(){
 		})
 	})
 }
+//获取主页banner列表
 function getBannerData(){
 	return new Promise((resolve,reject)=>{
 		//axios.get(`${API.bannerApi}?__t=${new Date().getTime()}`)
@@ -52,6 +53,7 @@ function getBannerData(){
 		})
 	})
 }
+//获取主页正在热映电影
 function getNowPlayingData(){
 	return new Promise((resolve,reject)=>{
 		axios.get(`${API.nowPlayingApi}?__t=${new Date().getTime()}`)
@@ -63,6 +65,7 @@ function getNowPlayingData(){
 		})
 	})
 }
+//获取主页即将上映电影
 function getComingSoonData(){
 	return new Promise((resolve,reject)=>{
 		axios.get(`${API.comingSoonApi}?__t=${new Date().getTime()}`)
@@ -74,6 +77,7 @@ function getComingSoonData(){
 		})
 	})
 }
+//获取影片页正在热映电影
 function getNowMovieListData(page){
 	return new Promise((resolve,reject)=>{
 		axios.get(`${API.nowPlayingListApi}&page=${page}`)
@@ -89,6 +93,7 @@ function getNowMovieListData(page){
 		})
 	})
 }
+//获取影片页即将热映电影
 function getSoonMovieListData(page){
 	return new Promise((resolve,reject)=>{
 		axios.get(`${API.comingSoonListApi}&page=${page}`)
@@ -114,7 +119,7 @@ function getPlayingTime(time){
 }
 
 
-
+//获取影院页数据
 function getCinemaData(){
 	return new Promise((resolve,reject)=>{
 		axios.get(`${API.cinemaDataApi}?__t=${new Date().getTime()}`)
@@ -149,6 +154,26 @@ function getCinemaData(){
 		})
 	})
 }
+function getCenimanScheduleData(id){
+	return new Promise((resolve,reject)=>{
+		
+	})
+}
+function getMovieDetailData(id){
+	return new Promise((resolve,reject)=>{
+		axios.get(`${API.movieDetailApi}${id}?__t=${new Date().getTime()}`)
+		.then((response)=>{
+			var obj=response.data.data.film;
+			obj.playingTime = getPlayingTime(obj.premiereAt);
+			resolve(obj);
+		})
+		.catch((error)=>{
+			console.log(error);
+		})
+	})
+}
+
+
 export default {
 	getCityListData,
 	getBannerData,
@@ -156,5 +181,7 @@ export default {
 	getComingSoonData,
 	getNowMovieListData,
 	getSoonMovieListData,
-	getCinemaData
+	getCinemaData,
+	getCenimanScheduleData,
+	getMovieDetailData
 }

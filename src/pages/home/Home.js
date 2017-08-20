@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 
-import homeService from "../services/homeService.js"
-import "../css/home.css"
+import homeService from "../../services/homeService.js"
+import "../../css/home.css"
 
 var bannerSwiper = null;
 var homeScroll = null;

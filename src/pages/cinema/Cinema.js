@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import homeService from "../services/homeService.js"
-import "../css/cinema.css"
+import homeService from "../../services/homeService.js"
+import "../../css/cinema.css"
 
 var cenimaScroll = null;
 export default class Cinema extends Component{
@@ -26,7 +26,7 @@ export default class Cinema extends Component{
 										{
 											item.cinemas.map((cinemaItem,i)=>{
 												return (
-													<li key={i}>
+													<li key={i}  onClick={this.cenimaAction.bind(this,cinemaItem.id)}>
 														<p class="title">
 															<span>{cinemaItem.name}</span>
 															<span>座</span>
@@ -74,5 +74,12 @@ export default class Cinema extends Component{
 		}else{
 			this.refs[index].style.display = "block";
 		}
+	}
+	cenimaAction(id){
+		console.log("点击了影院打印id"+id);
+		homeService.getCenimanScheduleData(id)
+		.then((res)=>{
+
+		})
 	}
 }
