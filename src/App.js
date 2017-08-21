@@ -10,7 +10,7 @@ import Cinema from "./pages/cinema/Cinema.js"
 import City from "./pages/City.js"
 
 import MovieDetail from "./pages/movie/MovieDetail.js"
-
+import CinemaDetail from "./pages/cinema/CinemaDetail.js"
 import AppHeader from "./views/common/AppHeader.js"
 import SliderBar from "./views/common/SliderBar.js"
 
@@ -44,6 +44,7 @@ export default class APP extends Component{
 					<Route path="/movies" component={Movies}/>
 					<Route path="/city-list" component={City}/>
 
+					<Route path="/cinema-detail" component={CinemaDetail}/>
 					<Route path="/movie-detail/:id" component={MovieDetail}/>
 				</div>
 			</BrowserRouter>

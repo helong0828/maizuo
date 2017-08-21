@@ -28,6 +28,9 @@
     height: 36px;
     text-align: center;
     margin-top: 50px;
+    position: absolute;
+    left: 0px;
+    bottom: 20px;
 }
 .btn button{
     font-size: 14px;

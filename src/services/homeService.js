@@ -154,11 +154,80 @@ function getCinemaData(){
 		})
 	})
 }
-function getCenimanScheduleData(id){
+//获取影院、电影拍片数据
+function getScheduleTime(time){
+	var date = new Date(time);
+	var timedate = date.getMonth()+1+"月"+date.getDate()+"日";
+	return timedate;
+}
+function getSchedulePlayTime(start,long){
+	var date = new Date(start);
+	var startMin = date.getMinutes();
+	if(startMin < 10){
+		startMin = "0"+startMin;
+	}
+	var startTime = date.getHours()+":"+startMin;
+	
+	var endHours = date.getHours()+parseInt(long/60);
+	var endMin = date.getMinutes()+parseInt(long%60);
+	if(endMin>=60){
+		endMin -=60;
+		endHours +=1;
+	}
+	if(endHours>23){
+		endHours -= 24;
+	}
+	if(endMin < 10){
+		var endTime = endHours+":0"+endMin;
+	}else{
+		var endTime = endHours+":"+endMin;
+	}
+	return {startTime,endTime}
+}
+function getCenimanScheduleData(cinemaId,filmId){
 	return new Promise((resolve,reject)=>{
-		
+		console.log("cinemaId"+cinemaId);
+		console.log("filmId"+filmId);
+		axios.get(`${API.movieSchedule}?__t=${new Date().getTime()}&film=${filmId}&cinema=${cinemaId}`)
+		.then((response)=>{
+			var arr = response.data.data.schedules;
+			var newArr = [];
+			arr.map((item)=>{
+				var str = getScheduleTime(item.showAt);
+				if(newArr.indexOf(str) == -1){
+					newArr.push(str);
+				}
+			})
+			var data=newArr.map((item)=>{
+				var obj={};
+				obj.day = item;
+				obj.info = [];
+				return obj;
+			})
+			arr.map((item)=>{
+				var str = getScheduleTime(item.showAt);
+				for(var i=0 ; i<data.length ; i++){
+					if(data[i].day == str){
+						data[i].info.push(item);
+					}
+				}
+			})
+			data.map((item)=>{
+				item.info.map((list)=>{
+					var obj = getSchedulePlayTime(list.showAt,list.film.mins);
+					list.startTime = obj.startTime;
+					list.endTime = obj.endTime;
+				})
+			})
+			console.log(data);
+			resolve(data);
+		})
+		.catch((error)=>{
+			console.log(error);
+		})
 	})
 }
+//获取电影详情数据
 function getMovieDetailData(id){
 	return new Promise((resolve,reject)=>{
 		axios.get(`${API.movieDetailApi}${id}?__t=${new Date().getTime()}`)

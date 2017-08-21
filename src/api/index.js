@@ -13,6 +13,8 @@ const comingSoonListApi = "/v4/api/film/coming-soon?count=7"
 const cinemaDataApi = "/v4/api/cinema"
 
 const movieDetailApi = "/v4/api/film/"
+
+const movieSchedule = "/v4/api/schedule"
 export default {
 	cityListApi,
 	bannerApi,
@@ -21,5 +23,6 @@ export default {
 	nowPlayingListApi,
 	comingSoonListApi,
 	cinemaDataApi,
-	movieDetailApi
+	movieDetailApi,
+	movieSchedule
 }

@@ -31,7 +31,6 @@ export default class Movies extends Component{
 			display:this.state.isSelected == 1?"block":"none"
 		}
 		let data = this.state.isSelected == 0?this.state.nowPalyingListData:this.state.soonListData
-		//console.log(this.state.isSelected);
 		return (
 				<div class="movies page">
 					<div class="wrap">

@@ -92,3 +92,55 @@
     color: #ccc;
     margin-top: 5px;
 }
+.schedule{
+    width:100%;
+}
+.schedule .selectDate{
+    margin-bottom: 5px;
+}
+.schedule .selectDate span{
+    display: inline-block;
+    height: 35px;
+    width: 96px;
+    margin: 5px 0px 0 10px;
+    display: inline-block;
+    border-radius: 35px;
+    font-size: 10px;
+    line-height: 35px;
+    text-align: center;
+    background-color: #fff;
+    color: #555;
+    cursor: pointer;
+}
+.schedule .selectDate span.active{
+    background-color: #ff6a19;
+    color: #eee;
+}
+
+.schedule .scheduleList{
+    width:100%;
+    border-bottom: 1px dashed #ddd;
+}
+.schedule .scheduleList p{
+    height: 30px;
+    color: #959595;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 90%;
+    font-size: 12px;
+    line-height: 30px;
+}
+.schedule .scheduleList p:nth-of-type(1){
+    font-size: 14px;
+    color: #000;
+}
+.schedule .scheduleList p:nth-of-type(1) .price{
+    font-size: 14px;
+    color: #fc8637;
+}
+.schedule .scheduleList p i{
+    float: right;
+    margin-right: 10px;
+    line-height: 30px
+}
