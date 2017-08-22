@@ -15,6 +15,10 @@ const cinemaDataApi = "/v4/api/cinema"
 const movieDetailApi = "/v4/api/film/"
 
 const movieSchedule = "/v4/api/schedule"
+
+const seatInfoApi = "/v4/api/seating-chart/"
+
+const seatPageTitleApi = "/v4/api/schedule/"
 export default {
 	cityListApi,
 	bannerApi,
@@ -24,5 +28,7 @@ export default {
 	comingSoonListApi,
 	cinemaDataApi,
 	movieDetailApi,
-	movieSchedule
+	movieSchedule,
+	seatInfoApi,
+	seatPageTitleApi
 }

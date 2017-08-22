@@ -48,7 +48,7 @@ export default class Cinema extends Component{
 																{
 																	showScheduleList.map((item,index)=>{
 																		return (
-																			<div class="scheduleList" data-index={index} onClick={this.selectMovie.bind(this,index)} key={index}>
+																			<div class="scheduleList" data-index={index} onClick={this.selectMovie.bind(this,item.id)} key={index}>
 																				<p>{item.startTime}<i class="price">¥{item.price.maizuo}</i></p>
 																				<p>预计{item.endTime}结束/{item.film.language}{item.imagery}/{item.hall.name}<i>¥{item.price.cinema}</i></p>
 																			</div>
@@ -72,6 +72,7 @@ export default class Cinema extends Component{
 		)
 	}
 	componentWillMount(){
+		
 		homeService.getCinemaData()
 		.then((res)=>{
 			this.setState({cinemaData:res});
@@ -99,7 +100,7 @@ export default class Cinema extends Component{
 			this.refs[index].style.display = "block";
 		}
 		if(this.props.location.state != null){
-			var filmId = this.props.location.state
+			var filmId = this.props.location.state.id
 			homeService.getCenimanScheduleData(cinemaId,filmId)
 			.then((res)=>{
 				this.setState({scheduleData:res});
@@ -119,8 +120,9 @@ export default class Cinema extends Component{
 		this.setState({isShow:event.target.dataset.index});
 	}
 
-	selectMovie(index,event){
+	selectMovie(id,event){
 		event.stopPropagation();
-		console.log(index);		
+		console.log(id);
+		this.props.history.push("/seat/"+id);		
 	}
 }

@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-
+import store from "../../store"
 import "../../css/slider.css"
 import menu from  "../../services/silderBarInfo.js"
 
@@ -34,8 +34,12 @@ export default class Sliderbar extends Component{
 	menuAction(item){
 		//slideBar页面跳转
 		this.props.history.push(item.path);
-		//改变头部标题
-		this.props.hideMenu(item.header);
+		//改变父级隐藏
+		this.props.hideMenu();
+		store.dispatch({
+			type:"CHANGETITLE",
+			title:item.header
+		})
 	}
 	//cover点击隐藏slide
 	coverAction(){

@@ -19,6 +19,9 @@
 	flex: 1;
 	color: #efefef;
 	line-height: 50px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 .app-header .city{
 	display: block;

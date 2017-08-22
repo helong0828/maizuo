@@ -1,13 +1,14 @@
 import React,{Component} from "react"
 import homeService from "../../services/homeService.js"
-
+import store from "../../store"
 import "../../css/movieDetail.css"
 
 export default class MovieDetail extends Component{
     constructor(props){
         super();
         this.state={
-            detailData:{}
+            detailData:{},
+            name:""
         }
     }
     render(){
@@ -59,13 +60,21 @@ export default class MovieDetail extends Component{
         homeService.getMovieDetailData(id)
         .then((res)=>{
             this.setState({detailData:res});
+            this.setState({name:res.name});
+            store.dispatch({
+                type:"CHANGETITLE",
+                title:res.name
+            })
         })
     }
     buyTicket(){
         var filmId=this.props.match.params.id;
         this.props.history.push({
             pathname:"/cinema",
-            state:filmId
+            state:{
+                id:filmId,
+                name:this.state.name
+            }
         })
     }
 }

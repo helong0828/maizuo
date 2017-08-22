@@ -186,8 +186,6 @@ function getSchedulePlayTime(start,long){
 }
 function getCenimanScheduleData(cinemaId,filmId){
 	return new Promise((resolve,reject)=>{
-		console.log("cinemaId"+cinemaId);
-		console.log("filmId"+filmId);
 		axios.get(`${API.movieSchedule}?__t=${new Date().getTime()}&film=${filmId}&cinema=${cinemaId}`)
 		.then((response)=>{
 			var arr = response.data.data.schedules;
@@ -242,7 +240,56 @@ function getMovieDetailData(id){
 	})
 }
 
-
+//获取影院座位数据
+function getSeatInfoData(id){
+	return new Promise((resolve,reject)=>{
+		axios.get(`${API.seatInfoApi}${id}?__t=${new Date().getTime()}`)
+		.then((response)=>{
+			var arr = response.data.data.seatingChart;
+			console.log(arr);
+			var newArr = [];
+			for(var i=0 ; i<arr.height ; i++){
+				var obj = {};
+				obj.row = i+1;
+				obj.newseats = [];
+				obj.width = arr.width;
+				obj.height = arr.height;
+				newArr.push(obj);
+			}
+			arr.seats.map((item)=>{
+				for(var i=0 ; i<newArr.length ; i++){
+					if(item.row == newArr[i].row){
+						newArr[i].newseats.push(item);
+						break;
+					}
+				}
+			})
+			console.log(newArr);
+			resolve(newArr);
+		})
+		.catch((error)=>{
+			console.log(error);
+		})
+	})
+}
+function getSeatPageTitleData(id){
+	return new Promise((resolve,reject)=>{
+		axios.get(`${API.seatPageTitleApi}${id}?__t=${new Date().getTime()}`)
+		.then((response)=>{
+			var obj = response.data.data.schedule
+			var date = new Date(response.data.data.schedule.showAt);
+			var ymd = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
+			var hm = date.getHours() + ':' + date.getMinutes();
+			obj.ymd = ymd;
+			obj.hm = hm;
+			obj.name = obj.cinema.name;
+			resolve(obj);
+		})
+		.catch((error)=>{
+			console.log(error);
+		})
+	})
+}
 export default {
 	getCityListData,
 	getBannerData,
@@ -252,5 +299,7 @@ export default {
 	getSoonMovieListData,
 	getCinemaData,
 	getCenimanScheduleData,
-	getMovieDetailData
+	getMovieDetailData,
+	getSeatInfoData,
+	getSeatPageTitleData
 }
