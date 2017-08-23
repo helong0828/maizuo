@@ -2,10 +2,9 @@ import React, {Component} from "react"
 import {Link} from "react-router-dom"
 import "../../css/movies.css"
 import homeService from "../../services/homeService.js"
-
+import ToTop from "../../views/common/ToTop.js"
 var movieSrcoll = null;
 
-//
 export default class Movies extends Component{
 	constructor(){
 		super();
@@ -14,7 +13,8 @@ export default class Movies extends Component{
 			nowPage:1,
 			soonPage:1,
 			nowPalyingListData:[],
-			soonListData:[]
+			soonListData:[],
+			toTopShow:false
 		}
 	}
 	render(){
@@ -62,6 +62,7 @@ export default class Movies extends Component{
 							</ul>
 						</div>
 					</div>
+					<ToTop toTopShow={this.state.toTopShow} scrollToTop={this.toTopAction.bind(this)}/>
 				</div>
 		)
 	}
@@ -78,9 +79,10 @@ export default class Movies extends Component{
 			movieSrcoll.refresh();
 		})
 	}
+	
 	componentDidMount(){
 		movieSrcoll = new IScroll(".movies",{
-
+			probeType:3
 		})
 		movieSrcoll.on("scrollEnd",()=>{
 			if(movieSrcoll.y <= movieSrcoll.maxScrollY){
@@ -103,6 +105,16 @@ export default class Movies extends Component{
 				}
 			}
 		})
+		movieSrcoll.on("scroll",()=>{
+			if(movieSrcoll.y <= -100){
+				this.setState({toTopShow:true});
+			}else{
+				this.setState({toTopShow:false});
+			}
+		})
+	}
+	toTopAction(){
+		movieSrcoll.scrollTo(0,0,500);
 	}
 	componentWillMount(){
 		homeService.getNowMovieListData(this.state.nowPage)

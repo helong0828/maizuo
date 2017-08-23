@@ -184,6 +184,7 @@ function getSchedulePlayTime(start,long){
 	}
 	return {startTime,endTime}
 }
+//影院排片数据
 function getCenimanScheduleData(cinemaId,filmId){
 	return new Promise((resolve,reject)=>{
 		axios.get(`${API.movieSchedule}?__t=${new Date().getTime()}&film=${filmId}&cinema=${cinemaId}`)
@@ -272,6 +273,7 @@ function getSeatInfoData(id){
 		})
 	})
 }
+//选座页面头部数据
 function getSeatPageTitleData(id){
 	return new Promise((resolve,reject)=>{
 		axios.get(`${API.seatPageTitleApi}${id}?__t=${new Date().getTime()}`)
@@ -290,6 +292,16 @@ function getSeatPageTitleData(id){
 		})
 	})
 }
+//影院详情页数据
+function getCinemaDetailData(id){
+	return new Promise((resolve,reject)=>{
+		axios.get(`${API.cinemaDetailApi}${id}?__t=${new Date().getTime()}`)
+		.then((response)=>{
+			console.log(response);
+		})
+	})
+}
+
 export default {
 	getCityListData,
 	getBannerData,
@@ -301,5 +313,6 @@ export default {
 	getCenimanScheduleData,
 	getMovieDetailData,
 	getSeatInfoData,
-	getSeatPageTitleData
+	getSeatPageTitleData,
+	getCinemaDetailData
 }

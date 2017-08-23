@@ -1,3 +1,4 @@
+
 @font-face {font-family: "iconfont";
   src: url('iconfont.ttf?t=1502969116450') format('truetype');
 }
@@ -19,28 +20,4 @@
 .icon-to-top:before { content: "\e623"; }
 
 .icon-menu:before { content: "\e60a"; }
-
-
-.icon-piao:before { content: "\e61b"; }
-
-.icon-lipin:before { content: "\e61a"; }
-
-.icon-yizi:before { content: "\e695"; }
-
-.icon-food:before { content: "\e617"; }
-
-.icon-piaojia:before { content: "\e63d"; }
-
-.icon-glass:before { content: "\e64c"; }
-
-.icon-phone:before { content: "\e60b"; }
-
-.icon-park:before { content: "\e624"; }
-
-.icon-bus:before { content: "\e6e7"; }
-
-.icon-position:before { content: "\e665"; }
-
-
-
 

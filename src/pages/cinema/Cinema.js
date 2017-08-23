@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import homeService from "../../services/homeService.js"
 import "../../css/cinema.css"
-
+import ToTop from "../../views/common/ToTop.js"
 var cenimaScroll = null;
 export default class Cinema extends Component{
 	constructor(){
@@ -66,8 +66,8 @@ export default class Cinema extends Component{
 							)
 						})
 					}
-					
 				</div>
+				<ToTop toTopShow={this.state.toTopShow} scrollToTop={this.toTopAction.bind(this)}/>
 			</div>
 		)
 	}
@@ -94,12 +94,14 @@ export default class Cinema extends Component{
 		}
 	}
 	cenimaAction(cinemaId,index){
-		if(this.refs[index].style.display == "block"){
-			this.refs[index].style.display = "none";
-		}else{
-			this.refs[index].style.display = "block";
-		}
+		
 		if(this.props.location.state != null){
+			if(this.refs[index].style.display == "block"){
+				this.refs[index].style.display = "none";
+			}else{
+				this.refs[index].style.display = "block";
+			}
+			//location.state有参数时，加载影院的排片信息，并通过location.state传入影片id
 			var filmId = this.props.location.state.id
 			homeService.getCenimanScheduleData(cinemaId,filmId)
 			.then((res)=>{
@@ -108,9 +110,8 @@ export default class Cinema extends Component{
 				cenimaScroll.refresh();
 			})
 		}else{
-			this.props.history.push({
-				pathname:"/cinema-detail"
-			})
+			//location.state无参数时，影院页面进入
+			this.props.history.push("/cinema-detail/"+cinemaId);
 		}
 	}
 	selectDay(event){
@@ -124,5 +125,8 @@ export default class Cinema extends Component{
 		event.stopPropagation();
 		console.log(id);
 		this.props.history.push("/seat/"+id);		
+	}
+	toTopAction(){
+		
 	}
 }

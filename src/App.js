@@ -20,15 +20,14 @@ export default class APP extends Component{
 	constructor(){
 		super();
 		this.state = {
-			showBar:false,
-			headerName:"卖座电影"
+			showBar:false
 		}
 	}
 	render(){
 		return (
 			<Router>
 				<div>
-					<AppHeader menuClick={this.changeShowBar.bind(this)} title={this.state.headerName}/>
+					<AppHeader menuClick={this.changeShowBar.bind(this)}/>
 					<Route path="/" render={({history,location})=>{
 						return <SliderBar history={history}
 										  pathname={location.pathname}
@@ -45,7 +44,7 @@ export default class APP extends Component{
 					<Route path="/movies" component={Movies}/>
 					<Route path="/city-list" component={City}/>
 
-					<Route path="/cinema-detail" component={CinemaDetail}/>
+					<Route path="/cinema-detail/:id" component={CinemaDetail}/>
 					<Route path="/movie-detail/:id" component={MovieDetail}/>
 					<Route path="/seat/:id" component={Seat}/>
 				</div>

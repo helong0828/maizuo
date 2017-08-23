@@ -35,7 +35,7 @@
     top:13px;
 }
 .seat{
-    width: 100%;
+    min-width: 100%;
     background: #FFF;
     position: absolute;
     top:84px;

@@ -2,7 +2,7 @@ import React, {Component} from "react"
 
 import homeService from "../../services/homeService.js"
 import "../../css/home.css"
-
+import ToTop from "../../views/common/ToTop.js"
 var bannerSwiper = null;
 var homeScroll = null;
 export default class Home extends Component{
@@ -11,7 +11,8 @@ export default class Home extends Component{
 		this.state={
 			bannerData:[],
 			nowPlayingData:[],
-			comingSoonData:[]
+			comingSoonData:[],
+			toTopShow:false
 		}
 	}
 	render(){
@@ -73,6 +74,7 @@ export default class Home extends Component{
 						<span>更多即将上映电影</span>
 					</div>
 				</div>
+				<ToTop toTopShow={this.state.toTopShow} scrollToTop={this.toTopAction.bind(this)}/>
 			</div>
 		)
 	}
@@ -100,7 +102,17 @@ export default class Home extends Component{
 			loop:true
 		})
 		homeScroll = new IScroll(".home",{
-			
+			probeType:3
 		})
+		homeScroll.on("scroll",()=>{
+			if(homeScroll.y <= -100){
+				this.setState({toTopShow:true});
+			}else{
+				this.setState({toTopShow:false});
+			}
+		})
+	}
+	toTopAction(){
+		homeScroll.scrollTo(0,0,500);
 	}
 }

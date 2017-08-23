@@ -1,0 +1,45 @@
+.cinema-detail{
+    width:100%;
+}
+.cinema-detail .cinema-detail-pic{
+    width:100%;
+    height: 180px;
+}
+.cinema-detail .cinema-detail-pic img{
+    width:100%;
+    height: 100%;
+}
+.cinema-detail .cinema-detail-func{
+    width:100%;
+    height: 115px;
+    padding: 25px 20px 0px 60px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    position: relative;
+}
+.cinema-detail .cinema-detail-func i{
+    font-size: 24px;
+    position: absolute;
+    top: 35px;
+    left: 15px;
+}
+.cinema-detail .order-ticket i{
+    color: #ff8160;
+}
+.cinema-detail .exchange-ticket i{
+    color: #40b5b5;
+    font-size: 28px;
+}
+.cinema-detail .food i{
+    color: #3697d1;
+    font-size: 28px;
+}
+.cinema-detail .order-ticket h6,.cinema-detail .exchange-ticket h6,.cinema-detail .food h6{
+    font-size: 16px;
+    color: #000;
+    line-height: 30px;
+}
+.cinema-detail .order-ticket p,.cinema-detail .exchange-ticket p,.cinema-detail .food p{
+    color: #737373;
+    font-size: 12px;
+}

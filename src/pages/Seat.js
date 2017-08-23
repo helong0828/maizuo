@@ -62,6 +62,7 @@ export default class Seat extends Component{
         )
     }
     componentWillMount(){
+        console.log(this.props);
         var id = this.props.match.params.id;
         homeService.getSeatInfoData(id)
         .then((res)=>{
