@@ -36,6 +36,7 @@ export default class Sliderbar extends Component{
 		this.props.history.push(item.path);
 		//改变父级隐藏
 		this.props.hideMenu();
+		
 		store.dispatch({
 			type:"CHANGETITLE",
 			title:item.header

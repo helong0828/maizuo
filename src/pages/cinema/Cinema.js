@@ -82,9 +82,18 @@ export default class Cinema extends Component{
 	}
 	componentDidMount(){
 		cenimaScroll = new IScroll(".cinema",{
-
+			probeType:3
 		})
-		
+		cenimaScroll.on("scroll",()=>{
+			if(cenimaScroll.y <= -100){
+				this.setState({toTopShow:true});
+			}else{
+				this.setState({toTopShow:false});
+			}
+		})
+	}
+	toTopAction(){
+			cenimaScroll.scrollTo(0,0,500);
 	}
 	hideShowAction(index){
 		if(this.refs[index].style.display == "block"){
@@ -92,6 +101,7 @@ export default class Cinema extends Component{
 		}else{
 			this.refs[index].style.display = "block";
 		}
+		cenimaScroll.refresh();
 	}
 	cenimaAction(cinemaId,index){
 		
@@ -126,7 +136,5 @@ export default class Cinema extends Component{
 		console.log(id);
 		this.props.history.push("/seat/"+id);		
 	}
-	toTopAction(){
-		
-	}
+	
 }

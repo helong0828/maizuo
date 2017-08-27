@@ -1,5 +1,6 @@
 .cinema-detail{
     width:100%;
+    overflow: hidden;
 }
 .cinema-detail .cinema-detail-pic{
     width:100%;
@@ -23,6 +24,39 @@
     top: 35px;
     left: 15px;
 }
+.cinema-detail .cinema-detail-func span{
+    width: 94px;
+    height: 34px;
+    line-height: 34px;
+    border-radius: 38px;
+    font-size: 13px;
+    background-color: #fe8233;
+    color: #fff;
+    font-size: 16px;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    text-align: center;
+}
+.cinema-detail .cinema-detail-func h6{
+    font-size: 16px;
+    color: #000;
+    line-height: 30px;
+}
+.cinema-detail .cinema-detail-func div{
+    border-bottom: 1px dashed #ddd;
+    width: 100%;
+    height: 99%;
+}
+.cinema-detail .phone div{
+    border-bottom: none;
+}
+
+.cinema-detail .exchange-ticket span{
+    background-color: #fff;
+    color: #fe8233;
+    border: 1px solid #fe8233;
+}
 .cinema-detail .order-ticket i{
     color: #ff8160;
 }
@@ -34,12 +68,64 @@
     color: #3697d1;
     font-size: 28px;
 }
-.cinema-detail .order-ticket h6,.cinema-detail .exchange-ticket h6,.cinema-detail .food h6{
-    font-size: 16px;
-    color: #000;
-    line-height: 30px;
+.cinema-detail .address i{
+    color: #7bafe1;
+    font-size: 28px;
+}
+.cinema-detail .phone i{
+    color: #ff8160;
+    font-size: 28px;
 }
 .cinema-detail .order-ticket p,.cinema-detail .exchange-ticket p,.cinema-detail .food p{
     color: #737373;
     font-size: 12px;
+}
+
+.cinema-detail .info-tabs{
+    width: 100%;
+    height: 156px;
+    margin-top: 20px;
+    background: #FFF;
+    padding: 10px 20px 0 20px;
+    box-sizing: border-box;
+}
+.cinema-detail ul{
+    width: 100%;
+    height: 72px;
+    background: #FFF;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+}
+.cinema-detail ul li{
+    flex: 1;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    color: #737373;
+    font-size: 12px;
+}
+.cinema-detail ul li i{
+    display: block;
+    margin: 0 auto;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    line-height: 45px;
+    border: 1px solid #ddd;
+    color: #737373;
+}
+.cinema-detail p{
+    color: #737373;
+    font-size: 12px;
+    margin-top: 10px;
+}
+.cinema-detail ul li.active{
+    color: #ff8160;
+    border-bottom: 4px solid #ff8160;
+}
+.cinema-detail ul li i.active{
+    border-color: #ff8160;
+    color: #ff8160;
 }

@@ -292,16 +292,79 @@ function getSeatPageTitleData(id){
 		})
 	})
 }
-//影院详情页数据
-function getCinemaDetailData(id){
+//影院详情页购票信息数据
+function getCinemaDetailTicketData(id){
 	return new Promise((resolve,reject)=>{
-		axios.get(`${API.cinemaDetailApi}${id}?__t=${new Date().getTime()}`)
+		axios.get(`${API.cinemaDetailTicketApi}${id}/item?__t=${new Date().getTime()}`)
 		.then((response)=>{
-			console.log(response);
+			console.log(response.data.data.items);
+			var arr = response.data.data.items;
+			var newArr=[false,false,false];
+			arr.map((item)=>{
+				if(item.name.indexOf("订座票") > 0){
+					newArr[0] = true;
+				}
+				if(item.name.indexOf("通兑票") > 0){
+					newArr[1] = true;
+				}
+				if(item.name.indexOf("可乐") > 0){
+					newArr[2] = true;
+				}
+			})
+			console.log(newArr);
+		})
+	})
+}
+//影院详情页tabs信息数据
+function getCinemaDetailInfoData(id){
+	return new Promise((resolve,reject)=>{
+		axios.get(`${API.cinemaDetailInfoApi}${id}?__t=${new Date().getTime()}`)
+		.then((response)=>{
+			resolve(response.data.data.cinema);
+		})
+		.catch((error)=>{
+			console.log(error);
 		})
 	})
 }
 
+//获取商城banner数据
+function getShopBannerData(){
+	return new Promise((resolve,reject)=>{
+		axios.get(`${API.shopBannerApi}`)
+		.then((response)=>{
+			var arr=response.data.data;
+			var obj = {};
+			obj.navData = arr.slice(0,8);
+			obj.bannerData = arr.slice(8,10);
+			obj.littleBannerData = arr.slice(10,12);
+			var newArr=[];
+			newArr.push(arr.slice(12,15)[1]);
+			newArr.push(arr.slice(12,15)[0]);
+			newArr.push(arr.slice(12,15)[2]);
+			
+			obj.hasProData = newArr;
+			obj.listData = arr.slice(15,22);
+			
+			resolve(obj);
+		})
+		.catch((error)=>{
+			console.log(error);
+		})
+	})
+}
+//获取商城商品精选数据
+function getGoodProData(page,num){
+	return new Promise((resolve,reject)=>{
+		axios.get(`${API.shopGoodProApi}?page=${page}&num=${num}`)
+		.then((response)=>{
+			resolve(response.data.data.list);
+		})
+		.catch((error)=>{
+			console.log(error);
+		})
+	})
+}
 export default {
 	getCityListData,
 	getBannerData,
@@ -314,5 +377,8 @@ export default {
 	getMovieDetailData,
 	getSeatInfoData,
 	getSeatPageTitleData,
-	getCinemaDetailData
+	getCinemaDetailInfoData,
+	getCinemaDetailTicketData,
+	getShopBannerData,
+	getGoodProData
 }
